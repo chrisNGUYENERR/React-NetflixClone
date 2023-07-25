@@ -14,7 +14,7 @@ const Container = styled.div`
 export default function BackgroundImage() {
   return (
     <Container>
-      <img src={background} alt="background" />
+      <img src={ background } alt="background" />
     </Container>
   )
 }
