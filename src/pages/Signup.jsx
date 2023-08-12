@@ -1,7 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import { createUserWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth';
 import BackgroundImage from '../components/BackgroundImage';
 import Header from '../components/Header';
+import { firebaseAuth } from '../utils/firebase-config';
+import { useNavigate } from 'react-router-dom';
 
 const Container = styled.div`
     position: relative;
@@ -78,9 +81,25 @@ export default function Signup() {
         password: '',
     });
 
+    const navigate = useNavigate();
+
     const handleSignIn = async () => {
-        console.log(formInputs)
-    }
+        try {
+            const { email, password } = formInputs;
+            await createUserWithEmailAndPassword(firebaseAuth, email, password);
+        } catch (err) {
+            console.log(err)
+        }
+    };
+
+    useEffect(() => {
+        onAuthStateChanged(firebaseAuth, (currentUser) => {
+            if (currentUser) {
+                navigate('/')
+            };
+        });
+    }, [navigate]);
+
 
   return (
     <Container>
