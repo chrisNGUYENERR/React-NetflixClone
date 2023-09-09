@@ -18,4 +18,4 @@ export default function Slider({ movies }) {
         <CardSlider title='Epics' data={getMoviesFromRange(50, 60)} />
     </div>
   )
-}
+};
