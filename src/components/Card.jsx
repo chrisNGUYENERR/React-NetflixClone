@@ -153,4 +153,4 @@ export default function Card({ movieData, isLiked = false }) {
 
     </Container>
   )
-}
+};

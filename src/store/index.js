@@ -39,9 +39,8 @@ const getRawData = async (api, genres, paging) => {
     for (let i=1; moviesArray.length < 60 && i < 10; i++ ) {
         const { data: { results } } = await axios.get(`${api}${paging ? `&page=${i}` : ''}`)
         createArrayFromRawData(results, moviesArray, genres)
-        return moviesArray
-
     };
+    return moviesArray
 };
 
 export const fetchMovies = createAsyncThunk('netflix/trending', async({ type }, thunkApi) => {
