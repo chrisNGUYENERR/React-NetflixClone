@@ -8,6 +8,7 @@ import { AiOutlineInfoCircle } from 'react-icons/ai';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchMovies, getGenres } from '../store';
+import Slider from '../components/Slider';
 
 
 const Container = styled.div`
@@ -108,6 +109,7 @@ export default function Netflix() {
                 </div>
             </div>
         </div>
+        <Slider movies={movies} />
     </Container>
   )
 }
