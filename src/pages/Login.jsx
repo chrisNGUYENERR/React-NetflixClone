@@ -80,9 +80,7 @@ export default function Login() {
 
     useEffect(() => {
         onAuthStateChanged(firebaseAuth, (currentUser) => {
-            if (currentUser) {
-                navigate('/')
-            };
+            if (currentUser) navigate('/');
         });
     }, [navigate]);
 
