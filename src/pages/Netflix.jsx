@@ -71,7 +71,7 @@ export default function Netflix() {
     const dispatch = useDispatch();
 
     const genresLoaded = useSelector((state) => state.netflix.genresLoaded);
-    const movies = useSelector((state) => state.netflix.movies)
+    const movies = useSelector((state) => state.netflix.movies);
 
     window.onscroll = () => {
         setIsScrolled(window.scrollY === 0 ? false : true);
@@ -84,7 +84,7 @@ export default function Netflix() {
 
     useEffect(() => {
         if (genresLoaded) dispatch(fetchMovies({ type: 'all' }))
-    })
+    }, [dispatch, genresLoaded]);
 
   return (
     <Container>
